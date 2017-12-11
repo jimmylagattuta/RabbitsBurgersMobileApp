@@ -1,6 +1,6 @@
 // import libraries
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 
 // create component
 const Header = (props) => {
@@ -8,26 +8,32 @@ const Header = (props) => {
 
 	return (
 		<View style={viewStyle}>
-			<Text style={textStyle}>{props.headerText}</Text>
+			<Image style={{ height: 55, width: 55, marginTop: -10 }} source={{ uri: 'https://i.imgur.com/DnIW1sS.jpg?3' }} />
+			<View style={{ alignItems: 'flex-start', flexDirection: 'column', justifyContent: 'space-between', marginLeft: 75 }}>
+				<Text style={textStyle}>Rabbit's</Text>
+				<Text style={textStyle}>Burgers</Text>
+			</View>
 		</View>
 	);
 };
 
 const styles = {
 	viewStyle: {
-		backgroundColor: '#F8F8F8',
-		justifyContent: 'center',
-		alignItems: 'center',
+		alignItems: 'flex-start',
+		flexDirection: 'row',
 		height: 60,
 		paddingTop: 15,
 		shadowColor: '#000',
-		shadowOffset: { width:  0, height: 2 },
+		shadowOffset: { height: 2 },
 		shadowOpacity: 0.8,
 		elevation: 2,
 		position: 'relative'
 	},
 	textStyle: {
-		fontSize: 20
+		color: '#267014',
+		fontSize: 20,
+		marginTop: -5,
+		marginLeft: 3
 	}
 };
 

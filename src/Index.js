@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { LoginForm } from './components/common';
+import { LoginForm, Header } from './components/common';
 import { signIn, signUp } from './actions/index';
 
 class Index extends Component {
 	state = {
-		pageString: ''
+		pageString: '',
+		user: ''
 	}
 
 	componentWillMount() {
@@ -52,6 +53,7 @@ class Index extends Component {
 	render() {
 		return (
 			<View style={{ margin: 20 }}>
+			<Header headerText="Rabbit's Burgers" user={this.state.user} />
 				{this.renderContent()}
 			</View>
 		);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView, Image } from 'react-native';
 import axios from 'axios';
 import { Card } from './Card';
 import { CardSection } from './CardSection';
@@ -16,7 +16,9 @@ class LoginForm extends Component {
     passwordSignin: '',
     secretQuestion: '',
     secretAnswer: '',
-    loading: ''
+    loading: '',
+    firstName: '',
+    lastName: ''
   }
 
   componentWillMount() {
@@ -26,6 +28,8 @@ class LoginForm extends Component {
   onButtonPress() {
     this.setState({ loading: true });
     const items = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
       secretQuestion: this.state.secretQuestion,
       secretAnswer: this.state.secretAnswer,
       emailSignup: this.state.emailSignup,
@@ -48,7 +52,9 @@ class LoginForm extends Component {
                 passwordSignup: '',
                 passwordSignupConfirmation: '',
                 secretQuestion: '',
-                secretAnswer: ''
+                secretAnswer: '',
+                firstName: '',
+                lastName: ''
               });
               const page = 'logged in';
               this.props.resetPage(page);
@@ -61,7 +67,9 @@ class LoginForm extends Component {
               passwordSignup: '',
               passwordSignupConfirmation: '',
               secretQuestion: '',
-              secretAnswer: ''
+              secretAnswer: '',
+              firstName: '',
+              lastName: ''
             });
             const page = '';
             this.props.resetPage(page);
@@ -113,9 +121,60 @@ class LoginForm extends Component {
   render() {
     return (
       <View>
-        <Card>
+        <View>
+          <Image
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: 300,
+              height: 100,
+              marginTop: 25,
+              marginBottom: -40,
+              marginLeft: 15
+            }}
+            source={{ uri: 'https://i.imgur.com/GJKq9PF.png' }}
+          />
+        </View>
+
+        <View>
+          <Image
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: 300,
+              height: 160,
+              marginTop: 10,
+              marginBottom: -40,
+              marginLeft: 22,
+              opacity: 0.8
+            }}
+            source={{ uri: 'https://i.imgur.com/Dxevesb.png' }}
+          />
+        </View>
+
+        <ScrollView style={{ maxHeight: 200 }}>
           <CardSection>
             <Text style={{ fontSize: 20, fontWeight: 'bold', justifyContent: 'center' }}>Signup</Text>
+          </CardSection>
+
+          <CardSection>
+            <Input
+              placeholder="first name"
+              value={this.state.firstName}
+              onChangeText={(text) => {
+                this.setState({ firstName: text });
+              }}
+            />
+          </CardSection>
+
+          <CardSection>
+            <Input
+              placeholder="last name"
+              value={this.state.lastName}
+              onChangeText={(text) => {
+                this.setState({ lastName: text });
+              }}
+            />
           </CardSection>
 
           <CardSection>
@@ -177,11 +236,42 @@ class LoginForm extends Component {
               Signup
             </Button>
           </CardSection>
-        </Card>
+        </ScrollView>
+
+        <View>
+          <Image
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: 300,
+              height: 60,
+              marginTop: 20,
+              marginBottom: -30,
+              marginLeft: 20
+            }}
+            source={{ uri: 'https://i.imgur.com/WgAeuGh.png' }}
+          />
+        </View>
+
+        <View>
+          <Image
+            style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: 300,
+                height: 190,
+                marginTop: -30,
+                marginBottom: -40,
+                marginLeft: 15
+            }}
+              source={{ uri: 'https://i.imgur.com/9IUGewb.png' }}
+
+          />
+        </View>
 
         <Card>
           <CardSection>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', justifyContent: 'center', alignItems: 'center' }}>Signin</Text>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', marginTop: -20 }}>Signin</Text>
           </CardSection>
 
           <CardSection>
@@ -211,6 +301,22 @@ class LoginForm extends Component {
             </Button>
           </CardSection>
         </Card>
+
+        <View>
+          <Image
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: 300,
+              height: 80,
+              marginTop: 30,
+              marginBottom: 20,
+              marginLeft: 22,
+              opacity: 0.8
+            }}
+            source={{ uri: 'https://i.imgur.com/GJKq9PF.png' }}
+          />
+        </View>
       </View>
     );
   }
