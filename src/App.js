@@ -1,17 +1,33 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import firebase from 'firebase';
 import reducers from './reducers';
+import Index from './Index';
 
 class App extends Component {
+	componentWillMount() {
+		const config = {
+			apiKey: 'AIzaSyB7YcPgkEauJLep1WWsLYdekB21lMMMe_I',
+			authDomain: 'rabbitsburgersmobileapp.firebaseapp.com',
+			databaseURL: 'https://rabbitsburgersmobileapp.firebaseio.com',
+			projectId: 'rabbitsburgersmobileapp',
+			storageBucket: 'rabbitsburgersmobileapp.appspot.com',
+			messagingSenderId: '403824403943'
+		};
+
+		firebase.initializeApp(config);
+	}
+
 	render() {
+		const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+
 		return (
-			<Provider store={createStore(reducers)}>
+			<Provider store={store}>
 				<View>
-					<Text>
-						Hello
-					</Text>
+					<Index />
 				</View>
 			</Provider>
 		);
@@ -19,3 +35,4 @@ class App extends Component {
 }
 
 export default App;
+
