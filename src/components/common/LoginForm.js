@@ -158,13 +158,103 @@ class LoginForm extends Component {
           />
         </View>
 
-        <ScrollView style={{ maxHeight: 200, backgroundColor: '#E6FAE1', borderRadius: 0.2 }}>
+        <Card>
           <View
             style={{
               borderWidth: 4,
               borderRadius: 4,
               borderColor: '#CFC826',
               borderBottomWidth: 2,
+              shadowColor: '#8C8B85',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.1,
+              shadowRadius: 2,
+              elevation: 1,
+              marginLeft: 5,
+              marginRight: 5
+            }}
+          >
+            <CardSection>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  justifyContent: 'center'
+                }}
+              >
+                Signin
+              </Text>
+            </CardSection>
+
+            <CardSection>
+              <Input
+                placeholder="email"
+                value={this.state.emailSignin}
+                onChangeText={(text) => {
+                  this.setState({ emailSignin: text });
+                }}
+              />
+            </CardSection>
+
+            <CardSection>
+              <Input
+                secureTextEntry
+                placeholder="password"
+                value={this.state.passwordSignin}
+                onChangeText={(text) => {
+                  this.setState({ passwordSignin: text });
+                }}
+              />
+            </CardSection>
+
+            <CardSection>
+              <Button onPress={text => this.onButtonPressSignin(text)}>
+                Signin
+              </Button>
+            </CardSection>
+          </View>
+        </Card>
+
+        <View>
+          <Image
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: 300,
+              height: 190,
+              marginTop: -10,
+              marginBottom: -60,
+              marginLeft: 15
+            }}
+            name="lettuce"
+            source={{ uri: 'https://i.imgur.com/N6UDbP8.png' }}
+          />
+        </View>
+
+        <View>
+          <Image
+            style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: 260,
+                height: 100,
+                marginLeft: 37,
+                marginBottom: 50
+            }}
+            name="patty and cheese"
+            source={{ uri: 'https://i.imgur.com/b9sND4v.png?1' }}
+
+          />
+        </View>
+
+
+        <ScrollView style={{ maxHeight: 200, backgroundColor: '#E6FAE1', borderRadius: 0.2 }}>
+          <View
+            style={{
+              borderWidth: 4,
+              borderRadius: 4,
+              borderColor: '#CFC826',
+              borderBottomWidth: 4,
               shadowColor: '#8C8B85',
               shadowOffset: { width: 0, height: 2 },
               shadowOpacity: 0.1,
@@ -288,95 +378,6 @@ class LoginForm extends Component {
             </CardSection>
           </View>
         </ScrollView>
-
-        <View>
-          <Image
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: 300,
-              height: 190,
-              marginTop: -10,
-              marginBottom: -60,
-              marginLeft: 15
-            }}
-            name="lettuce"
-            source={{ uri: 'https://i.imgur.com/N6UDbP8.png' }}
-          />
-        </View>
-
-        <View>
-          <Image
-            style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: 260,
-                height: 100,
-                marginLeft: 37,
-                marginBottom: 50
-            }}
-            name="patty and cheese"
-            source={{ uri: 'https://i.imgur.com/b9sND4v.png?1' }}
-
-          />
-        </View>
-
-        <Card>
-          <View
-            style={{
-              borderWidth: 4,
-              borderRadius: 4,
-              borderColor: '#CFC826',
-              borderBottomWidth: 2,
-              shadowColor: '#8C8B85',
-              shadowOffset: { width: 0, height: 2 },
-              shadowOpacity: 0.1,
-              shadowRadius: 2,
-              elevation: 1,
-              marginLeft: 5,
-              marginRight: 5
-            }}
-          >
-            <CardSection>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  justifyContent: 'center'
-                }}
-              >
-                Signin
-              </Text>
-            </CardSection>
-
-            <CardSection>
-              <Input
-                placeholder="email"
-                value={this.state.emailSignin}
-                onChangeText={(text) => {
-                  this.setState({ emailSignin: text });
-                }}
-              />
-            </CardSection>
-
-            <CardSection>
-              <Input
-                secureTextEntry
-                placeholder="password"
-                value={this.state.passwordSignin}
-                onChangeText={(text) => {
-                  this.setState({ passwordSignin: text });
-                }}
-              />
-            </CardSection>
-
-            <CardSection>
-              <Button onPress={text => this.onButtonPressSignin(text)}>
-                Signin
-              </Button>
-            </CardSection>
-          </View>
-        </Card>
 
         <View>
           <Image

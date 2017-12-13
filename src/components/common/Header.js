@@ -10,44 +10,31 @@ const Header = (props) => {
 	if (user) {
 		return (
 			<View style={viewStyle}>
-				<Image style={{ height: 58, width: 60, marginTop: -14, marginLeft: 6, backgroundColor: '#EBD972' }} source={{ uri: 'https://i.imgur.com/iuQ7dqC.png' }} />
-				<View
+				<Text 
 					style={{
-						alignItems: 'flex-start',
+						color: '#89C844',
+						fontWeight: 'bold',
+						fontSize: 16,
+						marginTop: -15,
+						marginRight: 10,
+						marginLeft: 2,
+						alignItems: 'flex-end',
 						flexDirection: 'column',
-						justifyContent: 'space-between',
-						marginLeft: 60
+						justifyContent: 'space-between'
 					}}
 				>
-					<Text style={textStyle}>Rabbit's</Text>
-					<Text style={textStyle}>Burgers</Text>
-				</View>
+					Hi {user.first_name}!
+				</Text>	
 				<View
 					style={{
 						alignItems: 'flex-end',
-						flexDirection: 'column',
-						justifyContent: 'space-between',
-						height: 60,
-						width: 350,
-						backgroundColor: '#4D7F16'
+						flexDirection: 'column'
 					}}
 				>
-					<Text 
-						style={{
-							color: '#89C844',
-							fontWeight: 'bold',
-							fontSize: 14,
-							marginTop: 30,
-							marginLeft: 20,
-							marginRight: 18,
-							alignItems: 'flex-end',
-							flexDirection: 'column',
-							justifyContent: 'space-between'
-						}}
-					>
-						Hi {user.first_name}!
-					</Text>
+
+					<Image style={{ height: 58, width: 60, marginTop: -14, alignItems: 'flex-end', backgroundColor: '#EBD972' }} source={{ uri: 'https://i.imgur.com/iuQ7dqC.png' }} />
 				</View>
+
 			</View>
 		);
 	}
@@ -86,7 +73,7 @@ const styles = {
 	},
 	textStyle: {
 		color: '#267014',
-		fontSize: 20,
+		fontSize: 18,
 		marginTop: -5,
 		marginLeft: 3,
 		fontWeight: 'bold'
