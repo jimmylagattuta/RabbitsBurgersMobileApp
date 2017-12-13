@@ -26,10 +26,10 @@ class App extends Component {
 
 		return (
 			<Provider store={store}>
-				<View style={{ flex: 1 }}>
-				<ScrollView>
-					<Index />
-				</ScrollView>
+				<View style={{ flex: 1, backgroundColor: '#DAF7A6' }}>
+					<ScrollView>
+						<Index />
+					</ScrollView>
 				</View>
 			</Provider>
 		);

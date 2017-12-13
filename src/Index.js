@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { LoginForm, Header } from './components/common';
+import { Header, LoginForm } from './components/common';
 import { signIn, signUp } from './actions/index';
 
 class Index extends Component {
@@ -12,13 +12,19 @@ class Index extends Component {
 	}
 
 	componentWillMount() {
-		axios.get('http://localhost:3000/api/v1/sessions/check')
+		console.log('userObject', this.state.user);
+		axios.get('http://localhost:3000/api/v1/users/check')
 			.then((response) => {
-				// console.log('user check', response);
+				console.log('user check', response);
 			})
 			.catch((response) => {
 				// console.log('error', response);
 			});
+	}
+
+	setUser(userObject) {
+		console.log('setUser userObject', userObject);
+		this.setState({ user: userObject });
 	}
 
 	resetPage(string) {
@@ -44,6 +50,7 @@ class Index extends Component {
 							resetPage={this.resetPage.bind(this)}
 							signUp={this.props.signUp}
 							signIn={this.props.signIn}
+							setUser={this.setUser.bind(this)}
 						/>
 					</View>
 				);
